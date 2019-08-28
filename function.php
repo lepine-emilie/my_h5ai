@@ -4,7 +4,7 @@ function show_files($folder_array){
         echo "There are no files or folder in this directory";
     }
     else{
-        echo "<table>";
+        echo "<table class='col-md-12 paleBlueRows'>";
         echo "<tr>";
         $sort_url = $_SERVER["PATH_INFO"];
         echo "<th>Filename <a href='$sort_url?sort=asc'><i class=\"fas fa-sort\"></i></a></th>";
@@ -58,27 +58,27 @@ function icons_to_files($filename){
     $extension = explode(".", $filename);
     switch ($extension[1]){
         case null:
-            echo "<td><i class=\"fas fa-folder\"></i><a href=\"".$_SERVER["PATH_INFO"]."/$filename\"> $filename</td>";
+            echo "<td><i class=\"fas fa-folder\"></i><a class='preview' href=\"".$_SERVER["PATH_INFO"]."/$filename\"> $filename</td>";
             break;
         case "html":
-            echo "<td><i class=\"fab fa-html5\"></i><a href='$filename'> $filename</a></td>";
+            echo "<td><i class=\"fab fa-html5\"></i><a class='preview' href='$filename'> $filename</a></td>";
             break;
         case "php":
-            echo "<td><i class=\"fab fa-php\"></i><a href='$filename'> $filename</a></td>";
+            echo "<td><i class=\"fab fa-php\"></i><a class='preview' href='$filename'> $filename</a></td>";
             break;
         case "css":
-            echo "<td><i class=\"fab fa-css3-alt\"></i><a href='$filename'> $filename</a></td>";
+            echo "<td><i class=\"fab fa-css3-alt\"></i><a class='preview' href='$filename'> $filename</a></td>";
             break;
         case "png":
         case "jpg":
         case "jpeg":
-            echo "<td><i class=\"far fa-file-image\"></i> <a href='$filename'>$filename</a></td>";
+            echo "<td><i class=\"far fa-file-image\"></i><a class='preview' href='$filename'> $filename</a></td>";
             break;
         case "js":
-            echo "<td><i class=\"fab fa-js-square\"></i><a href='$filename'> $filename</a></td>";
+            echo "<td><i class=\"fab fa-js-square\"></i><a class='preview' href='$filename'> $filename</a></td>";
             break;
         default:
-            echo "<td><i class=\"far fa-file\"></i><a href='$filename> $filename</td>";
+            echo "<td><i class=\"far fa-file\"></i><a class='preview' href='$filename> $filename</td>";
             break;
     }
 }
