@@ -24,9 +24,7 @@ function show_files($folder_array){
 }
 function sort_array(&$array, $sort){
     if ($sort == "asc"){
-        usort($array, function ($a, $b){
-            return $a['name'] > $b['name'];
-        });
+        ksort($array);
     }
     elseif ($sort == "s"){
         usort($array, function ($a, $b){
