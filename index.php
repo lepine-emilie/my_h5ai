@@ -12,8 +12,6 @@ include "main.php";
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.2/css/all.min.css" integrity="sha256-zmfNZmXoNWBMemUOo1XUGFfc0ihGGLYdgtJS3KCr/l0=" crossorigin="anonymous" />
     <link rel="stylesheet" href="/style.css">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
-    <script src="/h5ai.js"></script>
     <title>MY H5AI</title>
 </head>
 <body>
@@ -36,7 +34,7 @@ include "main.php";
     <div class="row">
         <div class="col-md-5">
             <h3>Directory</h3>
-            <ul>
+            <ul class="root_ul">
                 <li><a href="/"><i class="fas fa-folder"></i> ROOT</a></li>
                 <?php main_directory($_SERVER["DOCUMENT_ROOT"]);?>
             </ul>
@@ -47,5 +45,7 @@ include "main.php";
         </div>
     </div>
 </div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+<script src="/h5ai.js"></script>
 </body>
 </html>
