@@ -17,9 +17,6 @@ h1{
 .crumb, .breadcrumb{
     padding-right: 10px;
 }
-/*button{*/
-/*    margin: 15px;*/
-/*}*/
 .myButton {
     -moz-box-shadow:inset 0px 1px 0px 0px #54a3f7;
     -webkit-box-shadow:inset 0px 1px 0px 0px #54a3f7;
