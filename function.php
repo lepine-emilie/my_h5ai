@@ -6,34 +6,37 @@ function show_files($folder_array){
     else{
         echo "<table>";
         echo "<tr>";
-        echo "<th>Filename <button class='sort' value='a'><i class=\"fas fa-sort\"></i></button></th>";
-        echo "<th>Last Modified <button class='sort' value='m'><i class=\"fas fa-sort\"></i></button></th>";
-        echo "<th>File Size <button class='sort' value='s'><i class=\"fas fa-sort\"></i></button></th>";
+        $sort_url = $_SERVER["PATH_INFO"];
+        echo "<th>Filename <a href='$sort_url?sort=asc'><i class=\"fas fa-sort\"></i></a></th>";
+        echo "<th>Last Modified <a href='$sort_url?sort=m'><i class=\"fas fa-sort\"></i></a></th>";
+        echo "<th>File Size <a href='$sort_url?sort=s'><i class=\"fas fa-sort\"></i></a></th>";
         echo "</tr>";
         foreach($folder_array as $key => $value){
                 echo "<tr>";
                 $icon_result = icons_to_files($value["path"]);
                 echo $icon_result;
-                echo "<td>".$value["modif"]."</td>";
+                echo "<td>".date("F d Y H:i", $value["modif"])."</td>";
                 echo "<td>".$value["size"]."B</td>";
                 echo "</tr>";
         }
         echo "</table>";
     }
 }
-function sort_array($array, $sort){
+function sort_array(&$array, $sort){
     if ($sort == "asc"){
-        usort($value["path"]);
-        return $value;
+        usort($array, function ($a, $b){
+            return $a['name'] > $b['name'];
+        });
     }
     elseif ($sort == "s"){
         usort($array, function ($a, $b){
             return $a['size'] > $b['size'];
         });
     }
-    elseif($value == "m"){
-        asort($value["modif"]);
-        return $value;
+    elseif($sort == "m"){
+        usort($array, function ($a, $b){
+            return $a['modif'] > $b['modif'];
+        });
     }
 }
 function breadcrumb($url){

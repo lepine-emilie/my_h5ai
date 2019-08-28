@@ -43,7 +43,7 @@ include "main.php";
         </div>
         <div class="col-md-7">
             <h3>Index</h3>
-            <?php main_whole_directory("./".$_SERVER["PATH_INFO"], "s"); ?>
+            <?php main_whole_directory("./".$_SERVER["PATH_INFO"], $_GET["sort"]??"asc"); ?>
         </div>
     </div>
 </div>

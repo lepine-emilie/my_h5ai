@@ -22,7 +22,7 @@ function get_whole_directory($url, $sort){
         if (!in_array($dir, array(".","..", ".idea", ".git"))){
             $dir_array[$dir]['path'] = $dir;
             $dir_array[$dir]['size'] = filesize(".".$_SERVER["PATH_INFO"].$dir);
-            $dir_array[$dir]['modif'] = date("F d Y H:i", filemtime(".".$_SERVER["PATH_INFO"].$dir));
+            $dir_array[$dir]['modif'] = filemtime(".".$_SERVER["PATH_INFO"].$dir);
         }
     }
     sort_array($dir_array, $sort);
@@ -44,6 +44,11 @@ function main_directory($url){
     show_folders($folder_array);
 }
 function main_whole_directory($url, $sort){
-    $folder_array = get_whole_directory($url, $sort);
+    if (!isset($sort)){
+        $folder_array = get_whole_directory($url, $sort);
+    }
+    else{
+        $folder_array = get_whole_directory($url, $sort);
+    }
     show_files($folder_array);
 }
